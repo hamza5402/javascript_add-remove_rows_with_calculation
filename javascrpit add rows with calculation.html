@@ -1,0 +1,60 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	
+	<div class="container" style="margin-top: 10px;">
+
+		<button class="btn btn-primary" onclick="add_rows()">Add Rows</button>
+		<br><br>
+		<form action="check.html" method="POST">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="xd">
+			
+
+					</div>
+				</div>
+			</div>
+			<input type="submit" class="btn btn-success" name="">
+			</form>
+
+	</div>
+	<br>
+
+		
+<script type="text/javascript"> 
+var number = 1;
+function add_rows()
+{
+	$("#xd").append("<span id='remove"+number+"'><input type='number' onchange='total("+number+")' style='width:200px; float:left;'  name='quantity[]' id='quantity"+number+"' class='form-control' placeholder = 'Enter Quantity : "+number+"'><input type='number'  onchange='total("+number+")' style='width:200px; float:left;'  name='price[]'  id='price"+number+"' class='form-control' placeholder = 'Enter Price : "+number+"' ><input type='number' style='width:200px; float:left;'  name='total[]'  id='total"+number+"' class='form-control' placeholder = 'Total of item : "+number+"' ><a style='margin-top:2px; margin-left:4px;' class='btn btn-danger' style='float:left;'  onclick='remove("+number+")'><i  class='fa fa-trash' aria-hidden='true'></i></a><br><br></span>");
+	number++;
+}
+
+function remove(IDrem)
+{
+	var x = document.getElementById("remove"+IDrem);
+	x.remove();
+}
+
+function total(IDtotal){
+
+
+	var price = 0 ; 
+	var quantity = 0;
+	var total = 0
+	price = document.getElementById("price"+IDtotal).value;
+	quantity = document.getElementById("quantity"+IDtotal).value;
+	total = price * quantity ; 
+	 document.getElementById("total"+IDtotal).value = total;
+
+
+}
+
+</script>
